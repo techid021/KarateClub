@@ -11,9 +11,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra.Data", "Infra.Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra.IoC", "Infra.IoC", "{EA776D2D-C4A6-431A-9F95-2B9F99A49D45}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{0577BD76-01CF-49C0-ACCA-AA7B1DA0396F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarateClub.Mvc", "KarateClub.Mvc\KarateClub.Mvc.csproj", "{48567437-A72B-4871-B5E4-F3756D6D8FF1}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48567437-A72B-4871-B5E4-F3756D6D8FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48567437-A72B-4871-B5E4-F3756D6D8FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48567437-A72B-4871-B5E4-F3756D6D8FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48567437-A72B-4871-B5E4-F3756D6D8FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48567437-A72B-4871-B5E4-F3756D6D8FF1} = {0577BD76-01CF-49C0-ACCA-AA7B1DA0396F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8729A70C-F337-45D3-B66B-260D018946B1}
