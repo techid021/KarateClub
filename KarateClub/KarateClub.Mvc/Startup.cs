@@ -1,3 +1,4 @@
+using KarateClub.Infra.Data.Context;
 using KarateClub.Mvc.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,10 @@ namespace KarateClub.Mvc
                     Configuration.GetConnectionString("KarateClubIdentityDBConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDbContext<KarateClubDBContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("KarateClubDBConnection"));
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

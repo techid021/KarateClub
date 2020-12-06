@@ -13,11 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra.IoC", "Infra.IoC", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{0577BD76-01CF-49C0-ACCA-AA7B1DA0396F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarateClub.Mvc", "KarateClub.Mvc\KarateClub.Mvc.csproj", "{48567437-A72B-4871-B5E4-F3756D6D8FF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KarateClub.Mvc", "KarateClub.Mvc\KarateClub.Mvc.csproj", "{48567437-A72B-4871-B5E4-F3756D6D8FF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarateClub.Domain", "KarateClub.Domain\KarateClub.Domain.csproj", "{42F88135-8FA9-44D6-BB10-9200A8BCBD18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KarateClub.Domain", "KarateClub.Domain\KarateClub.Domain.csproj", "{42F88135-8FA9-44D6-BB10-9200A8BCBD18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarateClub.Infra.Data", "KarateClub.Infra.Data\KarateClub.Infra.Data.csproj", "{61A45E3A-8A56-4D63-95F6-1A81A595CF0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KarateClub.Infra.Data", "KarateClub.Infra.Data\KarateClub.Infra.Data.csproj", "{61A45E3A-8A56-4D63-95F6-1A81A595CF0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarateClub.Application", "KarateClub.Application\KarateClub.Application.csproj", "{F816AAE5-FEAA-4BAD-AA22-91BD5AD6420A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{61A45E3A-8A56-4D63-95F6-1A81A595CF0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61A45E3A-8A56-4D63-95F6-1A81A595CF0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61A45E3A-8A56-4D63-95F6-1A81A595CF0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F816AAE5-FEAA-4BAD-AA22-91BD5AD6420A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F816AAE5-FEAA-4BAD-AA22-91BD5AD6420A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F816AAE5-FEAA-4BAD-AA22-91BD5AD6420A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F816AAE5-FEAA-4BAD-AA22-91BD5AD6420A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{48567437-A72B-4871-B5E4-F3756D6D8FF1} = {0577BD76-01CF-49C0-ACCA-AA7B1DA0396F}
 		{42F88135-8FA9-44D6-BB10-9200A8BCBD18} = {587DC0C8-D562-402A-9FA8-EFED653E7C8A}
 		{61A45E3A-8A56-4D63-95F6-1A81A595CF0D} = {D4F0B0D6-05A3-4041-91E9-9B20B2422868}
+		{F816AAE5-FEAA-4BAD-AA22-91BD5AD6420A} = {4D54BE8F-8143-4AF1-B314-257ABD8DF2BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8729A70C-F337-45D3-B66B-260D018946B1}

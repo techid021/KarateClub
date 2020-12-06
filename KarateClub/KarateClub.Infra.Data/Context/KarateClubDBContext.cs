@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using KarateClub.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +13,8 @@ namespace KarateClub.Infra.Data.Context
 
         }
 
+
         //dbsets
+        public DbSet<Test> Tests { get; set; } //بعدا پاک شود - تستی
     }
 }
