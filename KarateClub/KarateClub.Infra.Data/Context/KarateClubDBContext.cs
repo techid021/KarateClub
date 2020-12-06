@@ -1,0 +1,17 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace KarateClub.Infra.Data.Context
+{
+    public class KarateClubDBContext : DbContext
+    {
+        public KarateClubDBContext(DbContextOptions<KarateClubDBContext> options) : base(options)
+        {
+
+        }
+
+        //dbsets
+    }
+}
