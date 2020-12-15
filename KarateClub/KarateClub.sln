@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KarateClub.Application", "K
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KarateClub.Infra.IoC", "KarateClub.Infra.IoC\KarateClub.Infra.IoC.csproj", "{317A8570-7FA0-4286-A39F-CAAE382F208C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarateClub.Mvc", "KarateClub.Mvc\KarateClub.Mvc.csproj", "{8118245A-354D-4DCD-A991-360B6B7783A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{317A8570-7FA0-4286-A39F-CAAE382F208C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{317A8570-7FA0-4286-A39F-CAAE382F208C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{317A8570-7FA0-4286-A39F-CAAE382F208C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8118245A-354D-4DCD-A991-360B6B7783A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8118245A-354D-4DCD-A991-360B6B7783A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8118245A-354D-4DCD-A991-360B6B7783A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8118245A-354D-4DCD-A991-360B6B7783A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{61A45E3A-8A56-4D63-95F6-1A81A595CF0D} = {D4F0B0D6-05A3-4041-91E9-9B20B2422868}
 		{F816AAE5-FEAA-4BAD-AA22-91BD5AD6420A} = {4D54BE8F-8143-4AF1-B314-257ABD8DF2BF}
 		{317A8570-7FA0-4286-A39F-CAAE382F208C} = {EA776D2D-C4A6-431A-9F95-2B9F99A49D45}
+		{8118245A-354D-4DCD-A991-360B6B7783A6} = {0577BD76-01CF-49C0-ACCA-AA7B1DA0396F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8729A70C-F337-45D3-B66B-260D018946B1}
