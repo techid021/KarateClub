@@ -1,4 +1,6 @@
-﻿using KarateClub.Mvc.Models;
+﻿using KarateClub.Application.Interfaces;
+using KarateClub.Application.ViewModels;
+using KarateClub.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,15 +13,19 @@ namespace KarateClub.Mvc.Controllers
 {
     public class HomeController : Controller
     {
+        private IYearService yearService;//test}
+
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IYearService yearService)
         {
             _logger = logger;
+            this.yearService = yearService;//test
         }
 
         public IActionResult Index()
         {
+            YearViewModel model = yearService.GetYears();//test
             return View();
         }
 
