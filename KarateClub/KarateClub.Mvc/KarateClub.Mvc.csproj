@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\site.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\KarateClub.Infra.Data\KarateClub.Infra.Data.csproj" />
     <ProjectReference Include="..\KarateClub.Infra.IoC\KarateClub.Infra.IoC.csproj" />
   </ItemGroup>
