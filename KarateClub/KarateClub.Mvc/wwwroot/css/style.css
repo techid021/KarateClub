@@ -1165,7 +1165,7 @@ span.dropcap {
 #nav li a {
     float: none;
     display: block;
-    font: 12px BYeKan, Arial, sans-serif;
+    font: 15px BYeKan, Arial, sans-serif;
     color: #333;
 }
 
@@ -1189,7 +1189,7 @@ span.dropcap {
     padding-top: 15px;
     margin: 0;
     top: 100%;
-    left: 0;
+    right: 0;
     z-index: 100;
 }
 
@@ -1211,7 +1211,7 @@ span.dropcap {
 
         #nav li ul li a {
             text-transform: none !important;
-            font: 12px 'Droid Sans', sans-serif;
+            font: 12px 'Droid Sans', BYeKan , sans-serif;
             line-height: 15px;
             color: #555 !important;
             transition-property: text-indent;
