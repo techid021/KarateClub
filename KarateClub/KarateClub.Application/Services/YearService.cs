@@ -10,9 +10,9 @@ namespace KarateClub.Application.Services
     public class YearService : IYearService
     {
         private IYearRepository _yearRepository;
-        public YearService(IYearRepository testRepository)
+        public YearService(IYearRepository yearRepository)
         {
-            this._yearRepository = testRepository;
+            this._yearRepository = yearRepository;
         }
 
         public YearViewModel GetYears()

@@ -17,6 +17,7 @@ namespace KarateClub.Infra.Data.Context
         //dbsets
         public DbSet<Test> Tests { get; set; } //بعدا پاک شود - تستی
         public DbSet<Year> Year { get; set; } 
+        public DbSet<News> News { get; set; }
 
 
     }
