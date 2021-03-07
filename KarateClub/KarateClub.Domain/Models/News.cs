@@ -19,7 +19,7 @@ namespace KarateClub.Domain.Models
         public DateTime Date { get; set; }
         public byte? IsActive { get; set; }
         public byte? ShowInSlider { get; set; }
-        public byte?[] Image { get; set; }
+        public byte[] Image { get; set; }
         public byte Notification { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model KarateClub.Application.ViewModels.NewsViewModel;
+@{
     //ViewData["Title"] = "Home Page";
 }
 
@@ -53,94 +54,39 @@
                 </p>
             </section><!-- entry-note end -->
         </article><!-- .grid_12 end -->
-        <!-- .grid_4 start -->
-        <article class="grid_4">
-            <div class="service-box-2-container">
-                <div class="icon">
+
+        @foreach (var notify in Model.Notification)
+        {
+            <!-- .grid_4 start -->
+            <article class="grid_4">
+                <div class="service-box-2-container">
+                    <div class="icon">
+                    </div>
+
+                    <section class="service-box-2">
+                        <div class="title">
+                            <a>
+                                <h3>@notify.Title</h3>
+                            </a>
+                            <span>@notify.Date</span>
+                        </div>
+
+                        <div class="description">
+                            <p>
+                                @notify.Description
+                            </p>
+                        </div>
+
+                        <div class="read-more-btn">
+                            <a href="services.html">جزییات</a>
+                            <span class="plus">+</span>
+                        </div>
+
+                    </section><!-- .service-box-2 end -->
                 </div>
 
-                <section class="service-box-2">
-                    <div class="title">
-                        <a href="services.html">
-                            <h3>کاملا واکنش گرا</h3>
-                        </a>
-                        <span>متناسب برای هر سلیقه ای</span>
-                    </div>
-
-                    <div class="description">
-                        <p>
-                            فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین kkkk kkkkkkk kkkkkk kkkkkkkkkkk kkkkkkkkkkkk kkkkkkkkkk kkkkkkk kkkkkkkkkk kkkkkkkk kkkkkkkkkkk kkkkkkkk kkkkkkkk kkkkkkkk kkkkkkkkkk kkkkk kkkkkkفعالیت خود را به اینترنت و وب متمرکز سازیم.
-                        </p>
-                    </div>
-
-                    <div class="read-more-btn">
-                        <a href="#">چزییات</a>
-                        <span class="plus">+</span>
-                    </div>
-
-                </section><!-- .service-box-2 end -->
-            </div>
-
-        </article><!-- .grid_4 end -->
-        <!-- .grid_4 start -->
-        <article class="grid_4">
-            <div class="service-box-2-container">
-                <div class="icon">
-                </div>
-
-                <section class="service-box-2">
-                    <div class="title">
-                        <a href="services.html">
-                            <h3>کاملا واکنش گرا</h3>
-                        </a>
-                        <span>متناسب برای هر سلیقه ای</span>
-                    </div>
-
-                    <div class="description">
-                        <p>
-                            فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
-
-                        </p>
-                    </div>
-
-                    <div class="read-more-btn">
-                        <a href="#">جزییات</a>
-                        <span class="plus">+</span>
-                    </div>
-
-                </section><!-- .service-box-2 end -->
-            </div>
-
-        </article><!-- .grid_4 end -->
-        <!-- .grid_4 start -->
-        <article class="grid_4">
-            <div class="service-box-2-container">
-                <div class="icon">
-                </div>
-
-                <section class="service-box-2">
-                    <div class="title">
-                        <a href="services.html">
-                            <h3>کاملا واکنش گرا</h3>
-                        </a>
-                        <span>متناسب برای هر سلیقه ای</span>
-                    </div>
-
-                    <div class="description">
-                        <p>
-                            فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
-                        </p>
-                        </p>
-                    </div>
-
-                    <div class="read-more-btn">
-                        <a href="#">جزییات</a>
-                        <span class="plus">+</span>
-                    </div>
-
-                </section><!-- .service-box-2 end -->
-            </div>
-        </article><!-- .grid_4 end -->
+            </article><!-- .grid_4 end -->
+        }
 
         <div class="clearfix"></div>
 
@@ -288,7 +234,7 @@
 
             </article><!-- .grid_6 end -->
         </article><!-- .grid_12 end -->
-        
+
 
     </div><!-- .container_12 end -->
 

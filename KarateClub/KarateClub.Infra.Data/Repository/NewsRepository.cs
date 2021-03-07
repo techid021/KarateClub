@@ -20,8 +20,7 @@ namespace KarateClub.Infra.Data.Repository
         public IEnumerable<News> GetThreeLastNotification()
         {
             var result = _ctx.News.OrderByDescending(p => p.Date)
-                         .Where(o => o.Notification == 1 && o.IsActive == 1).Take(3)
-                         .FirstOrDefault();
+                         .Where(o => o.Notification == 1 && o.IsActive == 1).Take(3);
             return (IEnumerable<News>)result;
         }
 

@@ -14,19 +14,22 @@ namespace KarateClub.Mvc.Controllers
     public class HomeController : Controller
     {
         private IYearService yearService;//test}
+        private INewsService newsService;
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IYearService yearService)
+        public HomeController(ILogger<HomeController> logger, INewsService newsService, IYearService yearService)
         {
             _logger = logger;
             this.yearService = yearService;//test
+            this.newsService = newsService;
         }
 
         public IActionResult Index()
         {
-            YearViewModel model = yearService.GetYears();//test
-            return View();
+            //YearViewModel model = yearService.GetYears();//test
+            NewsViewModel newsModel = newsService.GetThreeLastNotification();
+            return View(newsModel);
         }
 
         public IActionResult Privacy()
