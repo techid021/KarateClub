@@ -1,6 +1,7 @@
 ﻿using KarateClub.Application.Interfaces;
 using KarateClub.Application.ViewModels;
 using KarateClub.Mvc.Models;
+using KarateClub.Mvc.Models.ExtentionMethods;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -27,8 +28,21 @@ namespace KarateClub.Mvc.Controllers
 
         public IActionResult Index()
         {
-            //YearViewModel model = yearService.GetYears();//test
-            NewsViewModel newsModel = newsService.GetThreeLastNotification();
+            NewsViewModel newsModel;
+            try
+            {
+                //YearViewModel model = yearService.GetYears();//test
+                newsModel = newsService.GetThreeLastNotification();
+                foreach (var item in newsModel.Notification)
+                {
+                    item.Title1 = item.Date.ToPersianDate();
+                }
+            }
+            catch(Exception ex)
+            {
+                newsModel = new NewsViewModel();
+            }
+
             return View(newsModel);
         }
 

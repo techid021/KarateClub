@@ -54,38 +54,51 @@
                 </p>
             </section><!-- entry-note end -->
         </article><!-- .grid_12 end -->
-
-        @foreach (var notify in Model.Notification)
+        @if (Model.Notification != null)
         {
-            <!-- .grid_4 start -->
-            <article class="grid_4">
-                <div class="service-box-2-container">
-                    <div class="icon">
+            @foreach (var notify in Model.Notification)
+            {
+                <!-- .grid_4 start -->
+                <article class="grid_4">
+                    <div class="service-box-2-container">
+                        <div class="icon">
+                        </div>
+
+                        <section class="service-box-2">
+                            <div class="title">
+                                <a>
+                                    <h3>@notify.Title</h3>
+                                </a>
+                                <span>@notify.Title1</span>
+                            </div>
+                        
+                            <div class="description">
+                                <p>
+                                    @notify.Description
+                                </p>
+                            </div>
+
+                            <div class="read-more-btn">
+                                <a href="services.html">جزییات</a>
+                                <span class="plus">+</span>
+                            </div>
+
+                        </section><!-- .service-box-2 end -->
                     </div>
 
-                    <section class="service-box-2">
-                        <div class="title">
-                            <a>
-                                <h3>@notify.Title</h3>
-                            </a>
-                            <span>@notify.Date</span>
-                        </div>
-
-                        <div class="description">
-                            <p>
-                                @notify.Description
-                            </p>
-                        </div>
-
-                        <div class="read-more-btn">
-                            <a href="services.html">جزییات</a>
-                            <span class="plus">+</span>
-                        </div>
-
-                    </section><!-- .service-box-2 end -->
-                </div>
-
-            </article><!-- .grid_4 end -->
+                </article><!-- .grid_4 end -->
+            }
+        }
+        else
+        {
+            <div class="error-box">
+                <br />
+                <strong>&nbsp;&nbsp;&nbsp;مشکلی در بارگزاری داده ها به وجود آمده است لطفا مجددا تلاش بفرمایید</strong>
+                <br />
+                <strong>&nbsp;</strong>
+            </div>
+            <br />
+            <br />
         }
 
         <div class="clearfix"></div>
@@ -98,8 +111,8 @@
                 <!-- .ttile-container .carousel start -->
                 <div class="title-container">
                     <section class="title">
-                        <h2>اخرین اخبار</h2>
-                        <span>اخرین اخبار ار  ایران و جهان</span>
+                        <h2>آخرین اخبار</h2>
+                        <span>آخرین اخبار از آکادمی و خارج از آکادمی</span>
                     </section>
                 </div><!-- .title-container .carousel end -->
             </section><!-- .section-title .center end -->

@@ -4,6 +4,8 @@ using KarateClub.Domain.Intefaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Nelibur.ObjectMapper;
+using KarateClub.Domain.Models;
 
 namespace KarateClub.Application.Services
 {
@@ -21,6 +23,7 @@ namespace KarateClub.Application.Services
             {
                 Notification = _newsRepository.GetThreeLastNotification()
             };
+            
         }
 
 
