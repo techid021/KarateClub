@@ -1381,6 +1381,9 @@ span.dropcap {
 
         .latest-blog-posts .post-info img {
             border: 2px solid #ddd;
+            width:140px;
+            height:108px;
+            background-size:140px 108px;
         }
 
         .latest-blog-posts .post-info .comments {

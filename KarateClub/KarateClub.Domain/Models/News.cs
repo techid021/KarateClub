@@ -16,7 +16,7 @@ namespace KarateClub.Domain.Models
         [MaxLength(100)]
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
         public byte? IsActive { get; set; }
         public byte? ShowInSlider { get; set; }
         public byte[] Image { get; set; }
