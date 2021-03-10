@@ -38,17 +38,19 @@ namespace KarateClub.Mvc.Controllers
                 {
                     item.Title1 = item.Date?.ToPersianDate();
                 }
+
                 foreach (var item in newsModel.News)
                 {
-                    item.Title1 = item.Date?.ToPersianDate();
+                    item.Title3 = string.Format("data:" + item.Extention + ";base64,{0}", Convert.ToBase64String(item.Image));
+                    item.Title2 = item.Date?.ToPersianDate();
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 newsModel = new NewsViewModel();
             }
-            
+
             return View(newsModel);
         }
 

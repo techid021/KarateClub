@@ -71,7 +71,7 @@
                                 </a>
                                 <span>@notify.Title1</span>
                             </div>
-                        
+
                             <div class="description">
                                 <p>
                                     @notify.Description
@@ -116,136 +116,155 @@
                     </section>
                 </div><!-- .title-container .carousel end -->
             </section><!-- .section-title .center end -->
+
+            @if (Model.News != null)
+            {
+                string image = "";
+                @foreach (var news in Model.News)
+                {
+                    @if (news.Title3 != null) { image = news.Title3; } else { image = "img/blog/no-image.jpg"; }
+                    <!-- .grid_6 start -->
+                    <article class="grid_6 alpha">
+                        <section class="post-info">
+                            <img src="@image" alt="@news.Title1" />
+
+                        </section>
+
+                        <section class="post-body">
+                            <div class="post-meta">
+                                <div class="hidenDiv">
+                                </div>
+
+                                <div class="title-date">
+                                    <a>
+                                        <h6>@news.Title</h6>
+                                    </a>
+                                    <span class="date">@news.Title2</span>
+                                </div>
+                            </div>
+
+                            <p>
+                                @news.Description
+                            </p>
+
+                            <div class="read-more-btn">
+                                <a href="blog-single.html">جزییات</a>
+                                <span class="plus">+</span>
+                            </div>
+                        </section><!-- .post-body end -->
+
+                    </article><!-- .grid_6 end -->
+                }
+            }
+            else
+            {
+                <div class="error-box">
+                    <br />
+                    <strong>&nbsp;&nbsp;&nbsp;مشکلی در بارگزاری داده ها به وجود آمده است لطفا مجددا تلاش بفرمایید</strong>
+                    <br />
+                    <strong>&nbsp;</strong>
+                </div>
+                <br />
+                <br />
+            }
             <!-- .grid_6 start -->
-            <article class="grid_6 alpha">
-                <section class="post-info">
-                    <img src="img/blog/small-1.jpg" alt="blog-image" />
+            <!--<article class="grid_6 alpha">
+    <section class="post-info">
+        <img src="img/blog/small-2.jpg" alt="blog-image" />
 
-                </section>
+    </section>
 
-                <section class="post-body">
-                    <div class="post-meta">
-                        <div class="hidenDiv">
-                        </div>
+    <section class="post-body">
+        <div class="post-meta">
+            <div class="hidenDiv">
+            </div>
 
-                        <div class="title-date">
-                            <a href="blog-single.html">
-                                <h6> با منوهای کاملا زیبا</h6>
-                            </a>
-                            <span class="date">28 فروردین 94</span>
-                        </div>
-                    </div>
+            <div class="title-date">
+                <a href="blog-single.html">
+                    <h6>چرا مارا انتخاب کردید</h6>
+                </a>
 
-                    <p>
-                        فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
-                    </p>
+                <span class="date">28 فروردین 94</span>
+            </div>
+        </div>
 
-                    <div class="read-more-btn">
-                        <a href="blog-single.html">جزییات</a>
-                        <span class="plus">+</span>
-                    </div>
-                </section><!-- .post-body end -->
+        <p>
+            فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
+        </p>
 
-            </article><!-- .grid_6 end -->
-            <!-- .grid_6 start -->
-            <article class="grid_6 omega">
-                <section class="post-info">
-                    <img src="img/blog/small-2.jpg" alt="blog-image" />
-
-                </section>
-
-                <section class="post-body">
-                    <div class="post-meta">
-                        <div class="hidenDiv">
-                        </div>
-
-                        <div class="title-date">
-                            <a href="blog-single.html">
-                                <h6>چرا مارا انتخاب کردید</h6>
-                            </a>
-
-                            <span class="date">28 فروردین 94</span>
-                        </div>
-                    </div>
-
-                    <p>
-                        فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
-                    </p>
-
-                    <div class="read-more-btn">
-                        <a href="blog-single.html">جزیات</a>
-                        <span class="plus">+</span>
-                    </div>
-                </section><!-- .post-body end -->
-
-            </article><!-- .grid_6 end -->
-
-            <div class="clearfix"></div>
+        <div class="read-more-btn">
+            <a href="blog-single.html">جزیات</a>
+            <span class="plus">+</span>
+        </div>
+    </section>-->
+            <!-- .post-body end -->
+            <!--</article>--><!-- .grid_6 end -->
+            @*<div class="clearfix"></div>*@
 
             <!-- .grid_6 start -->
-            <article class="grid_6 alpha">
-                <section class="post-info">
-                    <img src="img/blog/blog-1.jpg" alt="blog-image" />
+            <!--<article class="grid_6 alpha">
+    <section class="post-info">
+        <img src="img/blog/blog-1.jpg" alt="blog-image" />
 
-                </section>
+    </section>
 
-                <section class="post-body">
-                    <div class="post-meta">
-                        <div class="hidenDiv">
-                        </div>
+    <section class="post-body">
+        <div class="post-meta">
+            <div class="hidenDiv">
+            </div>
 
-                        <div class="title-date">
-                            <a href="blog-single.html">
-                                <h6>پیشرو در خدمت </h6>
-                            </a>
+            <div class="title-date">
+                <a href="blog-single.html">
+                    <h6>پیشرو در خدمت </h6>
+                </a>
 
-                            <span class="date">28 فروردین 94</span>
-                        </div>
-                    </div>
+                <span class="date">28 فروردین 94</span>
+            </div>
+        </div>
 
-                    <p>
-                        فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
-                    </p>
+        <p>
+            فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
+        </p>
 
-                    <div class="read-more-btn">
-                        <a href="blog-single.html">جزیات</a>
-                        <span class="plus">+</span>
-                    </div>
-                </section><!-- .post-body end -->
-
-            </article><!-- .grid_6 end -->
+        <div class="read-more-btn">
+            <a href="blog-single.html">جزیات</a>
+            <span class="plus">+</span>
+        </div>
+    </section>-->
+            <!-- .post-body end -->
+            <!--</article>--><!-- .grid_6 end -->
             <!-- .grid_6 start -->
-            <article class="grid_6 omega">
-                <section class="post-info">
-                    <img src="img/blog/small-4.jpg" alt="blog-image" />
+            <!--<article class="grid_6 omega">
+    <section class="post-info">
+        <img src="img/blog/small-4.jpg" alt="blog-image" />
 
-                </section>
+    </section>
 
-                <section class="post-body">
-                    <div class="post-meta">
-                        <div class="hidenDiv">
-                        </div>
+    <section class="post-body">
+        <div class="post-meta">
+            <div class="hidenDiv">
+            </div>
 
-                        <div class="title-date">
-                            <a href="blog-single.html">
-                                <h6>پیشرو در خدمت </h6>
-                            </a>
+            <div class="title-date">
+                <a href="blog-single.html">
+                    <h6>پیشرو در خدمت </h6>
+                </a>
 
-                            <span class="date">28 فروردین 94</span>
-                        </div>
-                    </div>
+                <span class="date">28 فروردین 94</span>
+            </div>
+        </div>
 
-                    <p>
-                        فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
-                    </p>
+        <p>
+            فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
+        </p>
 
-                    <div class="read-more-btn">
-                        <a href="blog-single.html">جزیات</a>
-                        <span class="plus">+</span>
-                    </div>
-                </section><!-- .post-body end -->
-
-            </article><!-- .grid_6 end -->
+        <div class="read-more-btn">
+            <a href="blog-single.html">جزیات</a>
+            <span class="plus">+</span>
+        </div>
+    </section>-->
+            <!-- .post-body end -->
+            <!--</article>--><!-- .grid_6 end -->
         </article><!-- .grid_12 end -->
 
 
