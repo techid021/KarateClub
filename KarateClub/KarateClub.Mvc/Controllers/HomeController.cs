@@ -45,6 +45,11 @@ namespace KarateClub.Mvc.Controllers
                     item.Title2 = item.Date?.ToPersianDate();
                 }
 
+                foreach (var item in newsModel.NewsForSlider)
+                {
+                    item.Description = string.Format("data:" + item.Extention + ";base64,{0}", Convert.ToBase64String(item.Image));
+                }
+
             }
             catch (Exception ex)
             {

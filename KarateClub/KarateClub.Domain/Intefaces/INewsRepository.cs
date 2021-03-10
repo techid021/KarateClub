@@ -11,6 +11,9 @@ namespace KarateClub.Domain.Intefaces
 
         IEnumerable<News> GetFourLastNews();
 
+        IEnumerable<News> GetThreeLastNewsForSlider();
+
+
 
     }
 }

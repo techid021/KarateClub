@@ -2,42 +2,45 @@
 @{
     //ViewData["Title"] = "Home Page";
 }
+@if (Model.NewsForSlider != null)
+{
+    string picture = "";
+    <!-- .rs-wrapper start -->
+    <div class="rs-wrapper">
 
-<!-- .rs-wrapper start -->
-<div class="rs-wrapper">
+        <div class="fullwidthbanner-container">
 
-    <div class="fullwidthbanner-container">
-
-        <div class="fullwidthbanner">
-            <ul>
-
-                <li data-transition="slotzoom-horizontal" data-slotamount="15">
-                    <img src="img/slider/slide11.jpg" alt="background">
-                    <div class="caption lfl regular_title" data-x="335" data-y="90" data-speed="700" data-start="2000" data-easing="easeOutBack">کاملا واکنش گرا</div>
-                    <div class="caption lfr regular_subtitle" data-x="390" data-y="160" data-speed="700" data-start="2400" data-easing="easeOutBack">متناسب با هر سلیقه </div>
-                    <div class="caption lfr regular_subtitle" data-x="390" data-y="202" data-speed="700" data-start="2900" data-easing="easeOutBack">قالب فارسی </div>
-                    <div class="caption lfr regular_subtitle" data-x="390" data-y="242" data-speed="700" data-start="3200" data-easing="easeOutBack">اماده برای خرید </div>
-                </li>
-
-                <li data-transition="3dcurtain-vertical" data-slotamount="10">
-                    <img src="img/slider/slide12.jpg" alt="background">
-                    <div class="caption lfl regular_title2" data-x="460" data-y="90" data-speed="700" data-start="2000" data-easing="easeOutBack">کاملا واکنش گرا</div>
-                    <div class="caption lfr regular_subtitle" data-x="508" data-y="160" data-speed="700" data-start="2400" data-easing="easeOutBack">متناسب با هر سلیقه</div>
-                    <div class="caption lfr regular_subtitle" data-x="508" data-y="202" data-speed="700" data-start="2900" data-easing="easeOutBack">قالب فارسی</div>
-                    <div class="caption lfr regular_subtitle" data-x="508" data-y="242" data-speed="700" data-start="3200" data-easing="easeOutBack">اماده برای خرید</div>
-                </li>
-
-                <li data-transition="3dcurtain-horizontal" data-slotamount="10">
-                    <img src="img/slider/slide13.jpg" alt="background">
-                    <div class="caption lfl regular_title3" data-x="460" data-y="90" data-speed="700" data-start="2000" data-easing="easeOutBack">کاملا واکنش گرا</div>
-                    <div class="caption lfr regular_subtitle" data-x="508" data-y="160" data-speed="700" data-start="2400" data-easing="easeOutBack">متناسب با هر سلیقه</div>
-                    <div class="caption lfr regular_subtitle" data-x="508" data-y="202" data-speed="700" data-start="2900" data-easing="easeOutBack">قالب فارسی</div>
-                    <div class="caption lfr regular_subtitle" data-x="508" data-y="242" data-speed="700" data-start="3200" data-easing="easeOutBack">اماده برای خرید</div>
-                </li>
-            </ul>
+            <div class="fullwidthbanner">
+                <ul>
+                    @foreach (var item in Model.NewsForSlider)
+                    {
+                        @if (item.Title3 != null) { picture = item.Description; } else { picture = "img/blog/no-image.jpg"; }
+                        <li data-transition="3dcurtain-vertical" data-slotamount="15">
+                            <img src="@picture" alt="background">
+                            <div class="caption lfl regular_title" data-x="335" data-y="90" data-speed="700" data-start="2000" data-easing="easeOutBack">@item.Title</div>
+                            <div class="caption lfr regular_subtitle" data-x="390" data-y="160" data-speed="700" data-start="2400" data-easing="easeOutBack">@item.Title1</div>
+                            <div class="caption lfr regular_subtitle" data-x="390" data-y="202" data-speed="700" data-start="2900" data-easing="easeOutBack">@item.Title2</div>
+                            <div class="caption lfr regular_subtitle" data-x="390" data-y="242" data-speed="700" data-start="3200" data-easing="easeOutBack">@item.Title3</div>
+                        </li>
+                    }
+                </ul>
+            </div>
         </div>
     </div>
-</div><!-- .rs-wrapper end -->
+    <!-- .rs-wrapper end -->
+}
+else
+{
+    <div class="error-box">
+        <br />
+        <strong>&nbsp;&nbsp;&nbsp;مشکلی در بارگزاری داده ها به وجود آمده است لطفا مجددا تلاش بفرمایید</strong>
+        <br />
+        <strong>&nbsp;</strong>
+    </div>
+    <br />
+    <br />
+}
+
 <!-- #content-wrapper start -->
 <section id="content-wrapper">
 
@@ -167,104 +170,7 @@
                 <br />
                 <br />
             }
-            <!-- .grid_6 start -->
-            <!--<article class="grid_6 alpha">
-    <section class="post-info">
-        <img src="img/blog/small-2.jpg" alt="blog-image" />
 
-    </section>
-
-    <section class="post-body">
-        <div class="post-meta">
-            <div class="hidenDiv">
-            </div>
-
-            <div class="title-date">
-                <a href="blog-single.html">
-                    <h6>چرا مارا انتخاب کردید</h6>
-                </a>
-
-                <span class="date">28 فروردین 94</span>
-            </div>
-        </div>
-
-        <p>
-            فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
-        </p>
-
-        <div class="read-more-btn">
-            <a href="blog-single.html">جزیات</a>
-            <span class="plus">+</span>
-        </div>
-    </section>-->
-            <!-- .post-body end -->
-            <!--</article>--><!-- .grid_6 end -->
-            @*<div class="clearfix"></div>*@
-
-            <!-- .grid_6 start -->
-            <!--<article class="grid_6 alpha">
-    <section class="post-info">
-        <img src="img/blog/blog-1.jpg" alt="blog-image" />
-
-    </section>
-
-    <section class="post-body">
-        <div class="post-meta">
-            <div class="hidenDiv">
-            </div>
-
-            <div class="title-date">
-                <a href="blog-single.html">
-                    <h6>پیشرو در خدمت </h6>
-                </a>
-
-                <span class="date">28 فروردین 94</span>
-            </div>
-        </div>
-
-        <p>
-            فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
-        </p>
-
-        <div class="read-more-btn">
-            <a href="blog-single.html">جزیات</a>
-            <span class="plus">+</span>
-        </div>
-    </section>-->
-            <!-- .post-body end -->
-            <!--</article>--><!-- .grid_6 end -->
-            <!-- .grid_6 start -->
-            <!--<article class="grid_6 omega">
-    <section class="post-info">
-        <img src="img/blog/small-4.jpg" alt="blog-image" />
-
-    </section>
-
-    <section class="post-body">
-        <div class="post-meta">
-            <div class="hidenDiv">
-            </div>
-
-            <div class="title-date">
-                <a href="blog-single.html">
-                    <h6>پیشرو در خدمت </h6>
-                </a>
-
-                <span class="date">28 فروردین 94</span>
-            </div>
-        </div>
-
-        <p>
-            فناوری اطلاعات آرتام  با هدف فعالیت در زمینه کامپیوتر پا به عرصه گذاشت در سال های اخیر همگام با  رشد روز افزون کاربرد اینترنت در دنیا و نیاز آن در جامعه ایران ،تصمیم گرفتیم یکی از مهم ترین فعالیت خود را به اینترنت و وب متمرکز سازیم.
-        </p>
-
-        <div class="read-more-btn">
-            <a href="blog-single.html">جزیات</a>
-            <span class="plus">+</span>
-        </div>
-    </section>-->
-            <!-- .post-body end -->
-            <!--</article>--><!-- .grid_6 end -->
         </article><!-- .grid_12 end -->
 
 

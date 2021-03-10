@@ -23,6 +23,13 @@ namespace KarateClub.Infra.Data.Repository
                 .Where(o => o.Notification == 0 && o.IsActive == 1 && o.ShowInSlider == 0).Take(4);
         }
 
+        //گرفتن چهار خبر آخر جهت نمایش در اسلایدر صفحه اول
+        public IEnumerable<News> GetThreeLastNewsForSlider()
+        {
+            return _ctx.News.OrderByDescending(i => i.Date)
+                .Where(o => o.Notification == 0 && o.IsActive == 1 && o.ShowInSlider == 1).Take(4);
+        }
+
         //گرفتن سه اطلاعیه آخر جهت نمایش در صفحه اول
         public IEnumerable<News> GetThreeLastNotification()
         {

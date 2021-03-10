@@ -22,7 +22,8 @@ namespace KarateClub.Application.Services
             return new NewsViewModel
             {
                 Notification = _newsRepository.GetThreeLastNotification(),
-                News = _newsRepository.GetFourLastNews()
+                News = _newsRepository.GetFourLastNews(),
+                NewsForSlider = _newsRepository.GetThreeLastNewsForSlider()
             };
 
         }
