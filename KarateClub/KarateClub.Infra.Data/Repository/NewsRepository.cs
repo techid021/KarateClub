@@ -16,6 +16,13 @@ namespace KarateClub.Infra.Data.Repository
             this._ctx = ctx;
         }
 
+        //گرفتن چهار خبر آخر جهت نمایش در صفحه اول
+        public IEnumerable<News> GetFourLastNews()
+        {
+            return _ctx.News.OrderByDescending(i => i.Date)
+                .Where(o => o.Notification == 0 && o.IsActive == 1 && o.ShowInSlider == 0).Take(4);
+        }
+
         //گرفتن سه اطلاعیه آخر جهت نمایش در صفحه اول
         public IEnumerable<News> GetThreeLastNotification()
         {

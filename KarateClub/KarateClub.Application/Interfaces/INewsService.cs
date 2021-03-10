@@ -7,6 +7,7 @@ namespace KarateClub.Application.Interfaces
 {
     public interface INewsService
     {
-        NewsViewModel GetThreeLastNotification();
+        NewsViewModel GetLastNotificationAndNews();
+
     }
 }

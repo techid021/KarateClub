@@ -26,23 +26,29 @@ namespace KarateClub.Mvc.Controllers
             this.newsService = newsService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             NewsViewModel newsModel;
             try
             {
                 //YearViewModel model = yearService.GetYears();//test
-                newsModel = newsService.GetThreeLastNotification();
+                newsModel = newsService.GetLastNotificationAndNews();
                 foreach (var item in newsModel.Notification)
                 {
-                    item.Title1 = item.Date.ToPersianDate();
+                    item.Title1 = item.Date?.ToPersianDate();
                 }
+                foreach (var item in newsModel.News)
+                {
+                    item.Title1 = item.Date?.ToPersianDate();
+                }
+
             }
             catch(Exception ex)
             {
                 newsModel = new NewsViewModel();
             }
-
+            
             return View(newsModel);
         }
 

@@ -17,13 +17,14 @@ namespace KarateClub.Application.Services
             this._newsRepository = newsRepository;
         }
 
-        public NewsViewModel GetThreeLastNotification()
+        public NewsViewModel GetLastNotificationAndNews()
         {
             return new NewsViewModel
             {
-                Notification = _newsRepository.GetThreeLastNotification()
+                Notification = _newsRepository.GetThreeLastNotification(),
+                News = _newsRepository.GetFourLastNews()
             };
-            
+
         }
 
 

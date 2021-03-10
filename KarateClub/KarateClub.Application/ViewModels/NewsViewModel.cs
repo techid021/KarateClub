@@ -8,6 +8,7 @@ namespace KarateClub.Application.ViewModels
     public class NewsViewModel
     {
         public IEnumerable<News> Notification { get; set; }
+        public IEnumerable<News> News { get; set; }
         
     }
 

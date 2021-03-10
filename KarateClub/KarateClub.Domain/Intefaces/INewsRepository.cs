@@ -9,5 +9,8 @@ namespace KarateClub.Domain.Intefaces
     {
         IEnumerable<News> GetThreeLastNotification();
 
+        IEnumerable<News> GetFourLastNews();
+
+
     }
 }
