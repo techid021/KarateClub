@@ -17,6 +17,7 @@ namespace KarateClub.Domain.Models
         public string FullName { get; set; }
 
         [MaxLength(50)]
+        [EmailAddress]
         public string Email { get; set; }
         public string Comment { get; set; }
         public byte? IsRead { get; set; }

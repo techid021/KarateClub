@@ -39,5 +39,40 @@ namespace KarateClub.Mvc.Controllers
 
             return View(model);
         }
+
+        #region RegisterOpinion
+        [Route("ContactUs")]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        //[HttpPost] // CallBack Method
+        //[Route("ContactUs")]
+        //public IActionResult Register(RegisterViewModels register)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(register);
+        //    }
+
+        //    CheckUser checkUser = userService.CheckUser(register.UserName, register.Email);
+        //    if (checkUser != CheckUser.Ok)
+        //    {
+        //        ViewBag.Check = checkUser;
+        //        return View(register);
+        //    }
+
+        //    User user = new User
+        //    {
+        //        Email = register.Email.Trim(),
+        //        UserName = register.UserName.Trim()
+        //    };
+        //    userService.RegisterUser(user);
+        //    return View("SuccessRegister", register);
+        //}
+        #endregion
+
+
     }
 }

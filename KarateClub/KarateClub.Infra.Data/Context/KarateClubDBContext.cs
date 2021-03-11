@@ -19,7 +19,7 @@ namespace KarateClub.Infra.Data.Context
         public DbSet<Year> Year { get; set; } 
         public DbSet<News> News { get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
-
+        public DbSet<ContactUs> ContactUs { get; set; }
 
     }
 }
