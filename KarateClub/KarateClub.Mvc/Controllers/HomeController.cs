@@ -14,15 +14,13 @@ namespace KarateClub.Mvc.Controllers
 {
     public class HomeController : Controller
     {
-        private IYearService yearService;//test}
         private INewsService newsService;
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, INewsService newsService, IYearService yearService)
+        public HomeController(ILogger<HomeController> logger, INewsService newsService)
         {
             _logger = logger;
-            this.yearService = yearService;//test
             this.newsService = newsService;
         }
 
@@ -32,7 +30,11 @@ namespace KarateClub.Mvc.Controllers
             NewsViewModel newsModel;
             try
             {
-                //YearViewModel model = yearService.GetYears();//test
+                if (ModelState.IsValid)
+                {
+                    newsModel = new NewsViewModel();
+                    return View(newsModel);
+                }
                 newsModel = newsService.GetLastNotificationAndNews();
                 foreach (var item in newsModel.Notification)
                 {
@@ -49,6 +51,7 @@ namespace KarateClub.Mvc.Controllers
                 {
                     item.Description = string.Format("data:" + item.Extention + ";base64,{0}", Convert.ToBase64String(item.Image));
                 }
+
 
             }
             catch (Exception ex)
