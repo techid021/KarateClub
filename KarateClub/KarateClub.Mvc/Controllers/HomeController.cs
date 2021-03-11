@@ -30,7 +30,7 @@ namespace KarateClub.Mvc.Controllers
             NewsViewModel newsModel;
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     newsModel = new NewsViewModel();
                     return View(newsModel);
@@ -62,10 +62,6 @@ namespace KarateClub.Mvc.Controllers
             return View(newsModel);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

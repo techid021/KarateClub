@@ -1291,15 +1291,13 @@ span.dropcap {
 ============================================================================ */
 .page-title-container {
     width: 100%;
-    background-image: url('../img/page-title.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #eee;
     display: block;
-    margin: 0 auto 40px;
-    padding: 45px 0;
+    margin: 0 auto 20px;
+    border-style:hidden;
+    padding: 25px 0;
     border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
 }
 
 .page-title {
