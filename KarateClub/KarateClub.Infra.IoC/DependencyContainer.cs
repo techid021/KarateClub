@@ -17,12 +17,14 @@ namespace KarateClub.Infra.IoC
             service.AddScoped<ITestService, TestService>();
             service.AddScoped<IYearService, YearService>();
             service.AddScoped<INewsService, NewsService>();
+            service.AddScoped<IAboutUsService, AboutUsService>();
 
 
             //Infra Data Layer
             service.AddScoped<ITestRepository, TestRepository>();
             service.AddScoped<IYearRepository, YearRepository>();
             service.AddScoped<INewsRepository, NewsRepository>();
+            service.AddScoped<IAboutUsRepository, AboutUsRepository>();
         }
     }
 }

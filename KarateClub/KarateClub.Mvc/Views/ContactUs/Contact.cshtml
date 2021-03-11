@@ -1,4 +1,4 @@
-﻿
+﻿@model KarateClub.Application.ViewModels.AboutUsViewModel;
 @{
     //ViewData["Title"] = "Contact";
     //Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,9 +6,7 @@
 
 
 <section class="page-title-container">
-
 </section><!-- .page-title-container end -->
-
 <!-- #content-wrapper start -->
 <section id="content-wrapper">
     <!-- .container_12 start -->
@@ -22,41 +20,28 @@
                 <!-- .info-container start -->
                 <section class="info-container">
                     <h5>اطلاعات تماس</h5>
-
+                    <br />
+                    <br />
                     <ul>
                         <li>
                             <span class="text-dark">آدرس: </span>
-                            تهران خیابان شریعتی - خیابان ملک - کوچه ایرانیاد- پلاک 1
+                            @Model.AboutUs.Address
                         </li>
 
                         <li>
                             <span class="text-dark">تلفن: </span>
-                            +00 125 6847
+                            @Model.AboutUs.Phone
                         </li>
 
                         <li>
                             <span class="text-dark">ایمیل: </span>
-                            <a href="mailto:support@pixel-industry.com">info@business.com</a>
+                            <a href="mailto:@Model.AboutUs.Email">@Model.AboutUs.Email</a>
                         </li>
                     </ul>
 
                     <br />
                     <br />
 
-                    <h5>مرکز پشتیبانی</h5>
-                    <ul>
-                        <li> تهران خیابان شریعتی - خیابان ملک  - کوچه ایرانیاد- پلاک 1 </li>
-
-                        <li>
-                            <span class="text-dark">تلفن: </span>
-                            +00 125 6848
-                        </li>
-
-                        <li>
-                            <span class="text-dark">ایمیل: </span>
-                            <a href="mailto:support@pixel-industry.com">support@artamit.com</a>
-                        </li>
-                    </ul>
                 </section><!-- .info-container end -->
             </section><!-- .map-info-container end -->
         </article><!-- .grid_6 end -->
