@@ -1,4 +1,5 @@
-﻿@model KarateClub.Application.ViewModels.AboutUsViewModel;
+﻿@using KarateClub.Application.ViewModels
+@model KarateClub.Application.ViewModels.ContactUsViewModel
 @{
     //ViewData["Title"] = "Contact";
     //Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,7 +12,9 @@
 <section id="content-wrapper">
     <!-- .container_12 start -->
     <div class="container_12">
-
+        @{
+            var about = (AboutUsViewModel)ViewData["AboutData"];
+        }
         <!-- .grid_6 start -->
         <article class="grid_6">
 
@@ -25,17 +28,17 @@
                     <ul>
                         <li>
                             <span class="text-dark">آدرس: </span>
-                            @Model.AboutUs.Address
+                            @about.AboutUs.Address
                         </li>
 
                         <li>
                             <span class="text-dark">تلفن: </span>
-                            @Model.AboutUs.Phone
+                            @about.AboutUs.Phone
                         </li>
 
                         <li>
                             <span class="text-dark">ایمیل: </span>
-                            <a href="mailto:@Model.AboutUs.Email">@Model.AboutUs.Email</a>
+                            <a href="mailto:@about.AboutUs.Email">@about.AboutUs.Email</a>
                         </li>
                     </ul>
 
@@ -59,26 +62,44 @@
             <br />
 
             <!-- wpcf7 start -->
-            <form class="wpcf7">
+            <form class="wpcf7" asp-action="Register">
                 <fieldset>
-                    <label><span class="text-color">*</span> نام:</label>
-                    <input type="text" class="wpcf7-text" id="contact-name" />
+                    <label asp-for="contactUs.FullName"><span class="text-color">*</span> نام:</label>
+                    <input type="text" asp-for="contactUs.FullName" class="wpcf7-text" id="contact-name" />
+                    <span asp-validation-for="contactUs.FullName" class="text-validation"></span>
                 </fieldset>
 
                 <fieldset>
-                    <label><span class="text-color">*</span> ایمیل:</label>
-                    <input type="email" name="email" id="contact-email" class="wpcf7-text" />
+                    <label asp-for="contactUs.Email"><span class="text-color">*</span> ایمیل:</label>
+                    <input type="text" asp-for="contactUs.Email" id="contct-email" class="wpcf7-text" />
+                    <span asp-validation-for="contactUs.Email" class="text-validation"></span>
                 </fieldset>
 
                 <fieldset>
-                    <label><span class="text-color">*</span> پیام:</label>
-                    <textarea rows="10" class="wpcf7-textarea" id="contact-message"></textarea>
+                    <label asp-for="contactUs.Comment"><span class="text-color">*</span> پیام:</label>
+                    <textarea asp-for="contactUs.Comment" rows="10" class="wpcf7-textarea" id="contact-message"></textarea>
+                    <span asp-validation-for="contactUs.Comment" class="text-validation"></span>
                 </fieldset>
 
                 <input type="submit" class="wpcf7-submit" value="ارسال" />
+                <br />
+                @{
+                    var res = "";
+                    @if (ViewData["message"] != null)
+                    {
+                        res = ViewData["message"].ToString();
+                    }
+                }
+            <br />
+                <span name="result" class="text-validation">@res</span>
 
             </form><!-- wpcf7 end -->
         </div><!-- .grid_6 end -->
+        <script>
+            document.getElementById('contact-message').value = '';
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contct-email').value = '';
 
+        </script>
     </div><!-- .container_12 end -->
 </section><!-- #content-wrapper end -->

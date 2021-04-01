@@ -1,9 +1,13 @@
 ﻿using KarateClub.Application.Interfaces;
 using KarateClub.Application.ViewModels;
+using KarateClub.Domain.Models;
+using KarateClub.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace KarateClub.Mvc.Controllers
@@ -12,32 +16,36 @@ namespace KarateClub.Mvc.Controllers
     {
 
         private IAboutUsService _aboutUsService;
-        public ContactUsController(IAboutUsService aboutUsService)
+        private IContactUsService _contactUsService;
+        AboutUsViewModel model = null;
+
+        public ContactUsController(IAboutUsService aboutUsService, IContactUsService contactUsService)
         {
             this._aboutUsService = aboutUsService;
+            this._contactUsService = contactUsService;
         }
 
         [HttpGet]
         [Route("ContactUs")]
         public IActionResult Contact()
         {
-            AboutUsViewModel model = null;
+
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(model);
+                    ViewData["AboutData"] = model;
+                    return View();
                 }
                 model = _aboutUsService.GetAboutUs();
-               
-
+                ViewData["AboutData"] = model;
             }
             catch (Exception ex)
             {
                 model = null;
             }
 
-            return View(model);
+            return View();
         }
 
         #region RegisterOpinion
@@ -47,30 +55,45 @@ namespace KarateClub.Mvc.Controllers
             return View();
         }
 
-        //[HttpPost] // CallBack Method
-        //[Route("ContactUs")]
-        //public IActionResult Register(RegisterViewModels register)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(register);
-        //    }
+        [HttpPost] // CallBack Method
+        [Route("ContactUs")]
+        public IActionResult Register(ContactUsViewModel registerContact)
+        {
+            model = _aboutUsService.GetAboutUs();
+            if (!ModelState.IsValid)
+            {
+                ViewData["AboutData"] = model;
+                return View("Contact");
+            }
+            try
+            {
+                string hostName = Dns.GetHostName();
+                string ip = Dns.GetHostByName(hostName).AddressList[0].ToString();
 
-        //    CheckUser checkUser = userService.CheckUser(register.UserName, register.Email);
-        //    if (checkUser != CheckUser.Ok)
-        //    {
-        //        ViewBag.Check = checkUser;
-        //        return View(register);
-        //    }
+                ContactUs contact = new ContactUs
+                {
+                    Email = registerContact.contactUs.Email,
+                    InsertDate = DateTime.Now,
+                    IsRead = 0,
+                    FullName = registerContact.contactUs.FullName.Trim(),
+                    Comment = registerContact.contactUs.Comment.Trim(),
+                    IP = ip
+                };
 
-        //    User user = new User
-        //    {
-        //        Email = register.Email.Trim(),
-        //        UserName = register.UserName.Trim()
-        //    };
-        //    userService.RegisterUser(user);
-        //    return View("SuccessRegister", register);
-        //}
+                _contactUsService.RegisterContact(contact);
+                ViewData["message"] = "پیام شما با موفقیت ثبت شد";
+                ViewData["AboutData"] = model;
+                return View("Contact");
+
+                
+            }
+            catch
+            {
+                ViewData["message"] = "خطایی در سیستم به وجود آمده است. لطفا در زمان دیگری مجددا تلاش بفرمایید";
+                ViewData["AboutData"] = model;
+                return View("Contact");
+            }
+        }
         #endregion
 
 

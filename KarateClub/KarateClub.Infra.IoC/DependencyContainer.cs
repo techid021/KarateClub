@@ -18,6 +18,7 @@ namespace KarateClub.Infra.IoC
             service.AddScoped<IYearService, YearService>();
             service.AddScoped<INewsService, NewsService>();
             service.AddScoped<IAboutUsService, AboutUsService>();
+            service.AddScoped<IContactUsService, ContactUsService>();
 
 
             //Infra Data Layer
@@ -25,6 +26,8 @@ namespace KarateClub.Infra.IoC
             service.AddScoped<IYearRepository, YearRepository>();
             service.AddScoped<INewsRepository, NewsRepository>();
             service.AddScoped<IAboutUsRepository, AboutUsRepository>();
+            service.AddScoped<IContactUsRepository, ContactUsRepository>();
+
         }
     }
 }

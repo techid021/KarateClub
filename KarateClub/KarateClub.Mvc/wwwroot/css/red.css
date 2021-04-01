@@ -19,6 +19,11 @@ a:hover,
     color: #d52b2a !important;
 }
 
+.text-validation {
+    color: #d52b2a !important;
+    font-size: 11px;
+}
+
 .read-more-btn:hover a, 
 .aside_widgets .newsletter .submit:hover, 
 .comment-reply-link{
