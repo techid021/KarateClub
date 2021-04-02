@@ -17,12 +17,15 @@ namespace KarateClub.Mvc.Controllers
 
         private IAboutUsService _aboutUsService;
         private IContactUsService _contactUsService;
+        private ICoachService _coachService;
         AboutUsViewModel model = null;
+        CoachViewModel coachModel = null;
 
-        public ContactUsController(IAboutUsService aboutUsService, IContactUsService contactUsService)
+        public ContactUsController(IAboutUsService aboutUsService, IContactUsService contactUsService, ICoachService coachService)
         {
             this._aboutUsService = aboutUsService;
             this._contactUsService = contactUsService;
+            this._coachService = coachService;
         }
 
         [HttpGet]
@@ -96,6 +99,31 @@ namespace KarateClub.Mvc.Controllers
         }
         #endregion
 
+        #region AboutUs
+        [HttpGet]
+        [Route("AboutUs")]
+        public IActionResult AboutUs()
+        {
 
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(coachModel);
+                }
+                coachModel = _coachService.GetCoaches();
+                foreach (var item in coachModel.Coaches)
+                {
+                    item.Extention = string.Format("data:" + item.Extention + ";base64,{0}", Convert.ToBase64String(item.Image));
+                }
+            }
+            catch (Exception ex)
+            {
+                coachModel = null;
+            }
+
+            return View(coachModel);
+        }
+        #endregion
     }
 }

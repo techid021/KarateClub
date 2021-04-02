@@ -19,7 +19,7 @@ namespace KarateClub.Infra.IoC
             service.AddScoped<INewsService, NewsService>();
             service.AddScoped<IAboutUsService, AboutUsService>();
             service.AddScoped<IContactUsService, ContactUsService>();
-
+            service.AddScoped<ICoachService, CoachService>();
 
             //Infra Data Layer
             service.AddScoped<ITestRepository, TestRepository>();
@@ -27,7 +27,7 @@ namespace KarateClub.Infra.IoC
             service.AddScoped<INewsRepository, NewsRepository>();
             service.AddScoped<IAboutUsRepository, AboutUsRepository>();
             service.AddScoped<IContactUsRepository, ContactUsRepository>();
-
+            service.AddScoped<ICoachRepository, CoachRepository>();
         }
     }
 }

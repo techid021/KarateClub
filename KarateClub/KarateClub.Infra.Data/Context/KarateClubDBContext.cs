@@ -20,6 +20,7 @@ namespace KarateClub.Infra.Data.Context
         public DbSet<News> News { get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<ContactUs> ContactUs { get; set; }
+        public DbSet<Coach> Coach { get; set; }
 
     }
 }

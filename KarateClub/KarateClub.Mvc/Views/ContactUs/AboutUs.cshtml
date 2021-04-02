@@ -1,0 +1,78 @@
+﻿@model KarateClub.Application.ViewModels.CoachViewModel
+@{
+    //ViewData["Title"] = "AboutUs";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<section id="content-wrapper">
+
+    <!-- .container_12 start -->
+    <div class="container_12">
+        <div class="clearfix"></div>
+
+
+        <article class="grid_12 latest-blog-posts">
+            <!-- .section-title .center start -->
+            <section class="section-title center">
+
+                <!-- .ttile-container .carousel start -->
+                <div class="title-container">
+                    <section class="title">
+                        <h2>اساتید آکادمی</h2>
+                        <span>ما در این مجموعه از مجرب ترین اساتید بهره می بریم</span>
+                    </section>
+                </div><!-- .title-container .carousel end -->
+            </section><!-- .section-title .center end -->
+
+            @if (Model.Coaches != null)
+            {
+                string image = "";
+                @foreach (var coach in Model.Coaches)
+                {
+                    @if (coach.Image != null) { image = coach.Extention; } else { image = "img/blog/no-image.jpg"; }
+                    <!-- .grid_6 start -->
+                    <article class="grid_6 alpha">
+                        <section class="post-info">
+                            <img src="@image" alt="@coach.ImageTitle" />
+
+                        </section>
+
+                        <section class="post-body">
+                            <div class="post-meta">
+                                <div class="hidenDiv">
+                                </div>
+
+                                <div class="title-date">
+                                    <a>
+                                        <h6> استاد: @coach.FullName</h6>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <p>
+                                @coach.Description
+                            </p>
+
+                        </section><!-- .post-body end -->
+
+                    </article><!-- .grid_6 end -->
+                }
+            }
+            else
+            {
+                <div class="error-box">
+                    <br />
+                    <strong>&nbsp;&nbsp;&nbsp;مشکلی در بارگزاری داده ها به وجود آمده است لطفا مجددا تلاش بفرمایید</strong>
+                    <br />
+                    <strong>&nbsp;</strong>
+                </div>
+                <br />
+                <br />
+            }
+
+        </article><!-- .grid_12 end -->
+    </div>
+</section>
