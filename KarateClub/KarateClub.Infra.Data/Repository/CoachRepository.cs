@@ -1,6 +1,7 @@
 ﻿using KarateClub.Domain.Intefaces;
 using KarateClub.Domain.Models;
 using KarateClub.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace KarateClub.Infra.Data.Repository
         public IEnumerable<Coach> GetCoaches()
         {
             return _ctx.Coach.OrderByDescending(i => i.Rank)
-                .Where(o => o.IsActive == 1).ToList();
+                .Where(o => o.IsActive == 1).AsNoTracking().ToList();
         }
     }
 }

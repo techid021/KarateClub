@@ -5,6 +5,7 @@ using System.Text;
 using KarateClub.Domain.Intefaces;
 using KarateClub.Domain.Models;
 using KarateClub.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace KarateClub.Infra.Data.Repository
 {

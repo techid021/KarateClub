@@ -1,6 +1,7 @@
 ﻿using KarateClub.Domain.Intefaces;
 using KarateClub.Domain.Models;
 using KarateClub.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace KarateClub.Infra.Data.Repository
         //گرفتن اطلاعات درباره ما جهت نمایش
         public AboutUs GetAboutUs()
         {
-            return _ctx.AboutUs.OrderByDescending(i => i.Id).Single();
+            return _ctx.AboutUs.OrderByDescending(i => i.Id).AsNoTracking().Single();
         }
     }
 }
