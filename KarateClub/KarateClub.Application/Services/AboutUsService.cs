@@ -4,6 +4,8 @@ using KarateClub.Domain.Intefaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace KarateClub.Application.Services
 {
@@ -14,11 +16,11 @@ namespace KarateClub.Application.Services
         {
             this._aboutUsRepository = aboutUsRepository;
         }
-        public AboutUsViewModel GetAboutUs()
+        public async Task<AboutUsViewModel> GetAboutUs(CancellationToken cancellationToken)
         {
             return new AboutUsViewModel
             {
-                AboutUs = _aboutUsRepository.GetAboutUs()
+                AboutUs = await _aboutUsRepository.GetAboutUs(cancellationToken)
             };
         }
     }

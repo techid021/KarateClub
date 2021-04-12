@@ -54,7 +54,7 @@ namespace KarateClub.Mvc.Controllers
 
 
             }
-            catch (Exception ex)
+            catch
             {
                 newsModel = new NewsViewModel();
             }

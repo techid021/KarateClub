@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace KarateClub.Mvc.Controllers
@@ -30,7 +31,7 @@ namespace KarateClub.Mvc.Controllers
 
         [HttpGet]
         [Route("ContactUs")]
-        public IActionResult Contact()
+        public async Task<IActionResult> Contact()
         {
 
             try
@@ -40,10 +41,10 @@ namespace KarateClub.Mvc.Controllers
                     ViewData["AboutData"] = model;
                     return View();
                 }
-                model = _aboutUsService.GetAboutUs();
+                model = await _aboutUsService.GetAboutUs(CancellationToken.None);
                 ViewData["AboutData"] = model;
             }
-            catch (Exception ex)
+            catch
             {
                 model = null;
             }
@@ -60,9 +61,9 @@ namespace KarateClub.Mvc.Controllers
 
         [HttpPost] // CallBack Method
         [Route("ContactUs")]
-        public IActionResult Register(ContactUsViewModel registerContact)
+        public async Task<IActionResult> Register(ContactUsViewModel registerContact)
         {
-            model = _aboutUsService.GetAboutUs();
+            model = await _aboutUsService.GetAboutUs(CancellationToken.None);
             if (!ModelState.IsValid)
             {
                 ViewData["AboutData"] = model;
@@ -88,7 +89,7 @@ namespace KarateClub.Mvc.Controllers
                 ViewData["AboutData"] = model;
                 return View("Contact");
 
-                
+
             }
             catch
             {
@@ -117,7 +118,7 @@ namespace KarateClub.Mvc.Controllers
                     item.Extention = string.Format("data:" + item.Extention + ";base64,{0}", Convert.ToBase64String(item.Image));
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 coachModel = null;
             }

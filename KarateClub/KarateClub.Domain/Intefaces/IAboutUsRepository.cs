@@ -2,11 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace KarateClub.Domain.Intefaces
 {
     public interface IAboutUsRepository
     {
-        AboutUs GetAboutUs();
+        Task<AboutUs> GetAboutUs(CancellationToken cancellationToken);
     }
 }

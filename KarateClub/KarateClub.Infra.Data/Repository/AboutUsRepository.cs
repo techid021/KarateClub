@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace KarateClub.Infra.Data.Repository
 {
@@ -18,9 +20,9 @@ namespace KarateClub.Infra.Data.Repository
         }
 
         //گرفتن اطلاعات درباره ما جهت نمایش
-        public AboutUs GetAboutUs()
+        public async Task<AboutUs> GetAboutUs(CancellationToken cancellationToken)
         {
-            return _ctx.AboutUs.OrderByDescending(i => i.Id).AsNoTracking().Single();
+            return await _ctx.AboutUs.OrderByDescending(i => i.Id).AsNoTracking().SingleOrDefaultAsync(cancellationToken);
         }
     }
 }
