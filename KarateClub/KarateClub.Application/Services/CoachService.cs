@@ -4,6 +4,8 @@ using KarateClub.Domain.Intefaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace KarateClub.Application.Services
 {
@@ -15,11 +17,11 @@ namespace KarateClub.Application.Services
             this._coachRepository = coachRepository;
         }
 
-        public CoachViewModel GetCoaches()
+        public async Task<CoachViewModel> GetCoaches(CancellationToken cancellationToken)
         {
             return new CoachViewModel
             {
-                Coaches = _coachRepository.GetCoaches()
+                Coaches = await _coachRepository.GetCoaches(cancellationToken)
             };
 
         }

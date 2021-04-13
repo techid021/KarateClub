@@ -103,16 +103,15 @@ namespace KarateClub.Mvc.Controllers
         #region AboutUs
         [HttpGet]
         [Route("AboutUs")]
-        public IActionResult AboutUs()
+        public async Task<IActionResult> AboutUs()
         {
-
             try
             {
                 if (!ModelState.IsValid)
                 {
                     return View(coachModel);
                 }
-                coachModel = _coachService.GetCoaches();
+                coachModel = await _coachService.GetCoaches(CancellationToken.None);
                 foreach (var item in coachModel.Coaches)
                 {
                     item.Extention = string.Format("data:" + item.Extention + ";base64,{0}", Convert.ToBase64String(item.Image));
