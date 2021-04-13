@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Text;
 using Nelibur.ObjectMapper;
 using KarateClub.Domain.Models;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace KarateClub.Application.Services
 {
@@ -17,13 +19,13 @@ namespace KarateClub.Application.Services
             this._newsRepository = newsRepository;
         }
 
-        public NewsViewModel GetLastNotificationAndNews()
+        public async Task<NewsViewModel> GetLastNotificationAndNews(CancellationToken cancellationToken)
         {
             return new NewsViewModel
             {
-                Notification = _newsRepository.GetThreeLastNotification(),
-                News = _newsRepository.GetFourLastNews(),
-                NewsForSlider = _newsRepository.GetThreeLastNewsForSlider()
+                Notification = await _newsRepository.GetThreeLastNotification(cancellationToken),
+                News = await _newsRepository.GetFourLastNews(cancellationToken),
+                NewsForSlider = await _newsRepository.GetThreeLastNewsForSlider(cancellationToken)
             };
 
         }

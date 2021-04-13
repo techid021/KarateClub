@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace KarateClub.Mvc.Controllers
@@ -25,7 +26,7 @@ namespace KarateClub.Mvc.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             NewsViewModel newsModel;
             try
@@ -35,7 +36,7 @@ namespace KarateClub.Mvc.Controllers
                     newsModel = new NewsViewModel();
                     return View(newsModel);
                 }
-                newsModel = newsService.GetLastNotificationAndNews();
+                newsModel = await newsService.GetLastNotificationAndNews(CancellationToken.None);
                 foreach (var item in newsModel.Notification)
                 {
                     item.Title1 = item.Date?.ToPersianDate();

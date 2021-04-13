@@ -2,16 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace KarateClub.Domain.Intefaces
 {
     public interface INewsRepository
     {
-        IEnumerable<News> GetThreeLastNotification();
+        Task<IEnumerable<News>> GetThreeLastNotification(CancellationToken cancellationToken);
 
-        IEnumerable<News> GetFourLastNews();
+        Task<IEnumerable<News>> GetFourLastNews(CancellationToken cancellationToken);
 
-        IEnumerable<News> GetThreeLastNewsForSlider();
+        Task<IEnumerable<News>> GetThreeLastNewsForSlider(CancellationToken cancellationToken);
 
 
 

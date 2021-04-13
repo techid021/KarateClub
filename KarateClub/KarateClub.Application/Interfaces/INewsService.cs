@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace KarateClub.Application.Interfaces
 {
     public interface INewsService
     {
-        NewsViewModel GetLastNotificationAndNews();
+        Task<NewsViewModel> GetLastNotificationAndNews(CancellationToken cancellationToken);
 
     }
 }
