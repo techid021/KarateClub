@@ -84,7 +84,7 @@ namespace KarateClub.Mvc.Controllers
                     IP = ip
                 };
 
-                _contactUsService.RegisterContact(contact);
+                await _contactUsService.RegisterContact(contact, CancellationToken.None);
                 ViewData["message"] = "پیام شما با موفقیت ثبت شد";
                 ViewData["AboutData"] = model;
                 return View("Contact");

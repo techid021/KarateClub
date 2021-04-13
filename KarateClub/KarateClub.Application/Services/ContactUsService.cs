@@ -4,6 +4,8 @@ using KarateClub.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace KarateClub.Application.Services
 {
@@ -15,9 +17,9 @@ namespace KarateClub.Application.Services
             this._contactUsRepository = contactUsRepository;
         }
 
-        public long RegisterContact(ContactUs contactUs)
+        public async Task<long> RegisterContact(ContactUs contactUs, CancellationToken cancellationToken)
         {
-            _contactUsRepository.AddContact(contactUs);
+            _contactUsRepository.AddContact(contactUs, cancellationToken);
             _contactUsRepository.Save();
             return contactUs.Id;
         }
