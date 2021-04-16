@@ -53,6 +53,7 @@ namespace KarateClub.Mvc.Controllers
                     item.Description = string.Format("data:" + item.Extention + ";base64,{0}", Convert.ToBase64String(item.Image));
                 }
 
+             _logger.LogInformation("test");
 
             }
             catch
