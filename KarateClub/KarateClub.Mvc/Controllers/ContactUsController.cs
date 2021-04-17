@@ -3,6 +3,7 @@ using KarateClub.Application.ViewModels;
 using KarateClub.Domain.Models;
 using KarateClub.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -15,18 +16,19 @@ namespace KarateClub.Mvc.Controllers
 {
     public class ContactUsController : Controller
     {
-
+        private readonly ILogger<ContactUsController> _logger;
         private IAboutUsService _aboutUsService;
         private IContactUsService _contactUsService;
         private ICoachService _coachService;
         AboutUsViewModel model = null;
         CoachViewModel coachModel = null;
 
-        public ContactUsController(IAboutUsService aboutUsService, IContactUsService contactUsService, ICoachService coachService)
+        public ContactUsController(ILogger<ContactUsController> logger, IAboutUsService aboutUsService, IContactUsService contactUsService, ICoachService coachService)
         {
             this._aboutUsService = aboutUsService;
             this._contactUsService = contactUsService;
             this._coachService = coachService;
+            this._logger = logger;
         }
 
         [HttpGet]
@@ -91,8 +93,9 @@ namespace KarateClub.Mvc.Controllers
 
 
             }
-            catch
+            catch(Exception ex)
             {
+                _logger.LogError(ex, "خطایی در سیستم بوجود آمده است");
                 ViewData["message"] = "خطایی در سیستم به وجود آمده است. لطفا در زمان دیگری مجددا تلاش بفرمایید";
                 ViewData["AboutData"] = model;
                 return View("Contact");

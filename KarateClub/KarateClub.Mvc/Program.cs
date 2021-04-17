@@ -40,7 +40,7 @@ namespace KarateClub.Mvc
                         option =>
                         {
                             option.ClearProviders();
-                            //option.SetMinimumLevel(LogLevel.Information);
+                            option.SetMinimumLevel(LogLevel.Information);
                         })
                     .UseNLog()
                     .UseStartup<Startup>();
