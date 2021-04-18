@@ -31,9 +31,10 @@ namespace KarateClub.Mvc.Controllers
             this._logger = logger;
         }
 
+        #region ContactUs
         [HttpGet]
         [Route("ContactUs")]
-        public async Task<IActionResult> Contact()
+        public async Task<IActionResult> Contact(CancellationToken cancellationToken)
         {
 
             try
@@ -43,7 +44,7 @@ namespace KarateClub.Mvc.Controllers
                     ViewData["AboutData"] = model;
                     return View();
                 }
-                model = await _aboutUsService.GetAboutUs(CancellationToken.None);
+                model = await _aboutUsService.GetAboutUs(cancellationToken);
                 ViewData["AboutData"] = model;
             }
             catch
@@ -53,6 +54,7 @@ namespace KarateClub.Mvc.Controllers
 
             return View();
         }
+        #endregion
 
         #region RegisterOpinion
         [Route("ContactUs")]
@@ -63,7 +65,7 @@ namespace KarateClub.Mvc.Controllers
 
         [HttpPost] // CallBack Method
         [Route("ContactUs")]
-        public async Task<IActionResult> Register(ContactUsViewModel registerContact)
+        public async Task<IActionResult> Register(ContactUsViewModel registerContact, CancellationToken cancellationToken)
         {
             model = await _aboutUsService.GetAboutUs(CancellationToken.None);
             if (!ModelState.IsValid)
@@ -86,14 +88,14 @@ namespace KarateClub.Mvc.Controllers
                     IP = ip
                 };
 
-                await _contactUsService.RegisterContact(contact, CancellationToken.None);
+                await _contactUsService.RegisterContact(contact, cancellationToken);
                 ViewData["message"] = "پیام شما با موفقیت ثبت شد";
                 ViewData["AboutData"] = model;
                 return View("Contact");
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "خطایی در سیستم بوجود آمده است");
                 ViewData["message"] = "خطایی در سیستم به وجود آمده است. لطفا در زمان دیگری مجددا تلاش بفرمایید";
@@ -106,7 +108,7 @@ namespace KarateClub.Mvc.Controllers
         #region AboutUs
         [HttpGet]
         [Route("AboutUs")]
-        public async Task<IActionResult> AboutUs()
+        public async Task<IActionResult> AboutUs(CancellationToken cancellationToken)
         {
             try
             {
@@ -114,7 +116,7 @@ namespace KarateClub.Mvc.Controllers
                 {
                     return View(coachModel);
                 }
-                coachModel = await _coachService.GetCoaches(CancellationToken.None);
+                coachModel = await _coachService.GetCoaches(cancellationToken);
                 foreach (var item in coachModel.Coaches)
                 {
                     item.Extention = string.Format("data:" + item.Extention + ";base64,{0}", Convert.ToBase64String(item.Image));

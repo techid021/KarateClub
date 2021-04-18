@@ -25,8 +25,9 @@ namespace KarateClub.Mvc.Controllers
             this.newsService = newsService;
         }
 
+        #region Get Last Notification And News For Home Page 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
             NewsViewModel newsModel;
             try
@@ -36,7 +37,7 @@ namespace KarateClub.Mvc.Controllers
                     newsModel = new NewsViewModel();
                     return View(newsModel);
                 }
-                newsModel = await newsService.GetLastNotificationAndNews(CancellationToken.None);
+                newsModel = await newsService.GetLastNotificationAndNews(cancellationToken);
                 foreach (var item in newsModel.Notification)
                 {
                     item.Title1 = item.Date?.ToPersianDate();
@@ -62,7 +63,7 @@ namespace KarateClub.Mvc.Controllers
 
             return View(newsModel);
         }
-
+        #endregion
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
