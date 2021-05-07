@@ -36,6 +36,14 @@ namespace KarateClub.Infra.Data.Repository
 
         }
 
+        //خواندن اطلاعیه ها در صفحه اطلاعیه ها - صفحه بندی هم دارد
+        public async Task<IEnumerable<News>> GetNotificationByPaging(int startIndex, int pageSize, CancellationToken cancellationToken)
+        {
+            return await _ctx.News.OrderByDescending(i => i.Date)
+                .Where(o => o.Notification == 1 && o.IsActive == 1)
+                .Skip(startIndex).Take(pageSize).ToListAsync(cancellationToken);
+        }
+
         //گرفتن سه خبر آخر جهت نمایش در اسلایدر صفحه اول
         public async Task<IEnumerable<News>> GetThreeLastNewsForSlider(CancellationToken cancellationToken)
         {

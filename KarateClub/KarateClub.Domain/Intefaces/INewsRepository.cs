@@ -17,5 +17,7 @@ namespace KarateClub.Domain.Intefaces
 
         Task<IEnumerable<News>> GetNewsByPaging(int startIndex, int pageSize, CancellationToken cancellationToken);
 
+        Task<IEnumerable<News>> GetNotificationByPaging(int startIndex, int pageSize, CancellationToken cancellationToken);
+
     }
 }
