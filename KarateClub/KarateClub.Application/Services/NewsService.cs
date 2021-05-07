@@ -42,7 +42,7 @@ namespace KarateClub.Application.Services
         {
             return new NewsViewModel
             {
-                News = await _newsRepository.GetNotificationByPaging(startIndex, pageSize, cancellationToken)
+                Notification = await _newsRepository.GetNotificationByPaging(startIndex, pageSize, cancellationToken)
             };
         }
     }
