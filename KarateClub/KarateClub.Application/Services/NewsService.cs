@@ -30,6 +30,14 @@ namespace KarateClub.Application.Services
 
         }
 
+        public async Task<NewsViewModel> GetNewsByPagingAsync(int startIndex, int pageSize, CancellationToken cancellationToken)
+        {
+            return new NewsViewModel
+            {
+                News = await _newsRepository.GetNewsByPaging(startIndex, pageSize, cancellationToken)
+            };
+        }
+
 
     }
 }

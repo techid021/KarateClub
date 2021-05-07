@@ -10,6 +10,7 @@ namespace KarateClub.Application.Interfaces
     public interface INewsService
     {
         Task<NewsViewModel> GetLastNotificationAndNews(CancellationToken cancellationToken);
+        Task<NewsViewModel> GetNewsByPagingAsync(int startIndex, int pageSize, CancellationToken cancellationToken);
 
     }
 }

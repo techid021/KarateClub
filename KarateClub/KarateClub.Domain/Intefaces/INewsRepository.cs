@@ -15,7 +15,7 @@ namespace KarateClub.Domain.Intefaces
 
         Task<IEnumerable<News>> GetThreeLastNewsForSlider(CancellationToken cancellationToken);
 
-
+        Task<IEnumerable<News>> GetNewsByPaging(int startIndex, int pageSize, CancellationToken cancellationToken);
 
     }
 }
