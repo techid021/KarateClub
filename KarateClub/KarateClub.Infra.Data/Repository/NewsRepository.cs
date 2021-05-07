@@ -19,6 +19,12 @@ namespace KarateClub.Infra.Data.Repository
             this._ctx = ctx;
         }
 
+        public async Task<int> GetNewsCount(CancellationToken cancellationToken)
+        {
+            return await _ctx.News.Where(o => o.Notification == 0 && o.IsActive == 1 && o.ShowInSlider == 0)
+                  .CountAsync(cancellationToken);
+        }
+
         //گرفتن چهار خبر آخر جهت نمایش در صفحه اول
         public async Task<IEnumerable<News>> GetFourLastNews(CancellationToken cancellationToken)
         {
@@ -28,20 +34,20 @@ namespace KarateClub.Infra.Data.Repository
         }
 
         //خواندن اخبار در صفحه اخبار - صفحه بندی هم دارد
-        public async Task<IEnumerable<News>> GetNewsByPaging(int startIndex, int pageSize, CancellationToken cancellationToken)
+        public async Task<IEnumerable<News>> GetNewsByPaging(int startIndex, CancellationToken cancellationToken)
         {
             return await _ctx.News.OrderByDescending(i => i.Date)
                 .Where(o => o.Notification == 0 && o.IsActive == 1 && o.ShowInSlider == 0)
-                .Skip(startIndex).Take(pageSize).ToListAsync(cancellationToken);
+                .Skip((startIndex - 1) * 20).Take(20).ToListAsync(cancellationToken);
 
         }
 
         //خواندن اطلاعیه ها در صفحه اطلاعیه ها - صفحه بندی هم دارد
-        public async Task<IEnumerable<News>> GetNotificationByPaging(int startIndex, int pageSize, CancellationToken cancellationToken)
+        public async Task<IEnumerable<News>> GetNotificationByPaging(int startIndex, CancellationToken cancellationToken)
         {
             return await _ctx.News.OrderByDescending(i => i.Date)
                 .Where(o => o.Notification == 1 && o.IsActive == 1)
-                .Skip(startIndex).Take(pageSize).ToListAsync(cancellationToken);
+                .Skip((startIndex - 1) * 20).Take(20).ToListAsync(cancellationToken);
         }
 
         //گرفتن سه خبر آخر جهت نمایش در اسلایدر صفحه اول
@@ -60,6 +66,10 @@ namespace KarateClub.Infra.Data.Repository
             return await result;
         }
 
-
+        public async Task<int> GetNotificationsCount(CancellationToken cancellationToken)
+        {
+            return await _ctx.News.Where(o => o.Notification == 1 && o.IsActive == 1)
+                  .CountAsync(cancellationToken);
+        }
     }
 }
