@@ -12,6 +12,7 @@ namespace KarateClub.Application.Interfaces
         Task<NewsViewModel> GetLastNotificationAndNews(CancellationToken cancellationToken);
         Task<NewsViewModel> GetNewsByPagingAsync(int startIndex, CancellationToken cancellationToken);
         Task<NewsViewModel> GetNotificationsByPagingAsync(int startIndex, CancellationToken cancellationToken);
-
+        Task<int> GetNewsCount(CancellationToken cancellationToken);
+        Task<int> GetNotificationsCount(CancellationToken cancellationToken);
     }
 }

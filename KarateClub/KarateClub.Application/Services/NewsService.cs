@@ -34,18 +34,26 @@ namespace KarateClub.Application.Services
         {
             return new NewsViewModel
             {
-                News = await _newsRepository.GetNewsByPaging(startIndex, cancellationToken),
-                Count = await _newsRepository.GetNewsCount(cancellationToken)
+                News = await _newsRepository.GetNewsByPaging(startIndex, cancellationToken)
             };
+        }
+
+        public async Task<int> GetNewsCount(CancellationToken cancellationToken)
+        {
+            return await _newsRepository.GetNewsCount(cancellationToken);
         }
 
         public async Task<NewsViewModel> GetNotificationsByPagingAsync(int startIndex, CancellationToken cancellationToken)
         {
             return new NewsViewModel
             {
-                Notification = await _newsRepository.GetNotificationByPaging(startIndex, cancellationToken),
-                Count = await _newsRepository.GetNotificationsCount(cancellationToken)
+                Notification = await _newsRepository.GetNotificationByPaging(startIndex, cancellationToken)
             };
+        }
+
+        public async Task<int> GetNotificationsCount(CancellationToken cancellationToken)
+        {
+            return await _newsRepository.GetNotificationsCount(cancellationToken);
         }
     }
 }

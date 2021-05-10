@@ -98,7 +98,7 @@
                                 <a href="#">آرشیو اخبار</a>
 
                                 <ul>
-                                    <li><a href="blog-alt.html">اخبار عمومی</a></li>
+                                    <li><a asp-controller="News" asp-action="Index">اخبار عمومی</a></li>
                                     <li><a href="blog-single.html">اطلاعیه ها</a></li>
                                 </ul>
                             </li>
@@ -122,7 +122,7 @@
                         <option value="Home">خانه</option>
 
                         <option value="@Url.Action("AboutUs","ContactUs")">درباره ما</option>
-                        <option value="services.html">خدمات</option>
+                        <option value="@Url.Action("Index","News")">اخبار عمومی</option>
                         <option value="faq.html">سوالات متداول</option>
                         <option value="page-sidebar-left.html">چپ</option>
                         <option value="page-sidebar-right.html">راست</option>
